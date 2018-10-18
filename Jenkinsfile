@@ -26,11 +26,10 @@ pipeline {
                 stage('Build') { 
                     steps {
                         script {
-                            sh "git remote set-url origin ${env.GIT_URL}"
                             sh 'git tag | xargs git tag -d'
                             sh "git checkout ${env.BRANCH_NAME}"
                             sh 'npm version prerelease'
-                            sh "git push origin ${env.BRANCH_NAME}"
+                            sh "git push ${env.GIT_URL} ${env.BRANCH_NAME}"
                             sh 'git push origin --tags'
                             //sh 'npm run build'
                         }
