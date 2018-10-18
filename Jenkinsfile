@@ -8,7 +8,7 @@ pipeline {
         stage('Getting Dependencies'){
             steps {
                 script {
-                    sh 'npm ci'
+                    //sh 'npm ci'
                 }
             }
         }
@@ -17,17 +17,18 @@ pipeline {
                 stage('Test') { 
                     steps {
                         script {
-                            sh 'npm test'
+                            //sh 'npm test'
                         }
                     }
                 }
                 stage('Build') { 
                     steps {
                         script {
-                            sh 'npm run build'
+                            sh "npm checkout ${env.BRANCH_NAME}"
                             sh 'npm version prerelease'
                             sh "git push origin ${env.BRANCH_NAME}"
                             sh 'git push origin --tags'
+                            //sh 'npm run build'
                         }
                     }
                 }
