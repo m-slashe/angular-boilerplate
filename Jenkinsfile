@@ -27,7 +27,7 @@ pipeline {
                     steps {
                         script {
                             sh "git checkout ${env.BRANCH_NAME}"
-                            sh 'git version prerelease'
+                            sh 'npm version prerelease'
                             sh "git push origin ${env.BRANCH_NAME}"
                             sh 'git push origin --tags'
                             //sh 'npm run build'
