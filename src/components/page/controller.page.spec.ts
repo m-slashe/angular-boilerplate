@@ -27,7 +27,7 @@ describe('Page', function () {
 	it('Deve trocar a data', function () {
 		this.controller.datePicker.value(new Date(2018, 1, 1, 1, 0, 0, 0));
 		const value = this.controller.datePicker.value();
-		expect(value.toISOString()).toBe('2018-02-01T03:00:00.000Z');
+		expect(value).toBe(new Date(2018, 1, 1, 1, 0, 0, 0));
 	});
 });
 
