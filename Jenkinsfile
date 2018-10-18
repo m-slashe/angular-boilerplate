@@ -36,7 +36,7 @@ pipeline {
                                     sh "git pull origin ${env.BRANCH_NAME}"
                                     sh 'git tag | xargs git tag -d'
                                     sh 'npm version prerelease'
-                                    sh "git commit --amend -m \"[skip ci] version"
+                                    sh 'git commit --amend -m "[skip ci] version"'
                                     sh "git push ${env.GIT_URL} ${env.BRANCH_NAME}"
                                     sh("git push origin --tags")    
                                 }
