@@ -1,10 +1,6 @@
 {
   "name": "angular-boilerplate",
-<<<<<<< HEAD
-  "version": "1.0.1-28",
-=======
   "version": "1.0.1-30",
->>>>>>> 9e0e1b51cc210de86d8604bddf19257bde954e7d
   "description": "",
   "main": "index.js",
   "scripts": {
