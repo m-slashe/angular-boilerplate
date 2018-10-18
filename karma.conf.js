@@ -2,6 +2,8 @@
 const merge = require('webpack-merge');
 const webpackConfig = require('./webpack.config');
 
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 const karmaWebpackConfig = merge(webpackConfig, {
 	mode: 'development',
 	module: {
@@ -37,6 +39,9 @@ module.exports = function (config) {
 		logLevel: config.LOG_INFO,
 		autoWatch: true,
 		webpackServer: { noInfo: true },
+		client: {
+			captureConsole: false,
+		},
 		browsers: ['ChromeHeadlessNoSandbox'],
 		customLaunchers: {
 			ChromeHeadlessNoSandbox: {
