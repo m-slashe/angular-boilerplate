@@ -25,6 +25,9 @@ pipeline {
                     steps {
                         script {
                             sh 'npm run build'
+                            sh 'npm version prerelease'
+                            sh "git push origin ${env.BRANCH_NAME}"
+                            sh 'git push origin --tags'
                         }
                     }
                 }
