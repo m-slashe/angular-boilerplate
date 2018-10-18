@@ -26,6 +26,7 @@ pipeline {
                 stage('Build') { 
                     steps {
                         script {
+                            sh 'git tag | xargs git tag -d'
                             sh "git checkout ${env.BRANCH_NAME}"
                             sh 'npm version prerelease'
                             sh "git push origin ${env.BRANCH_NAME}"
