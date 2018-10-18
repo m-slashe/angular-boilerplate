@@ -8,6 +8,7 @@ pipeline {
         stage('Getting Dependencies'){
             steps {
                 script {
+                    sh 'npm i -g npm'
                     sh 'npm ci'
                 }
             }
