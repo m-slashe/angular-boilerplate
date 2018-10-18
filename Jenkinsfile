@@ -29,7 +29,7 @@ pipeline {
                             sh 'git tag | xargs git tag -d'
                             sh "git checkout ${env.BRANCH_NAME}"
                             sh 'npm version prerelease'
-                            sh "GIT_ASKPASS=true && git push ${env.GIT_URL} ${env.BRANCH_NAME}"
+                            sh "GIT_ASKPASS=true git push ${env.GIT_URL} ${env.BRANCH_NAME}"
                             sh 'git push origin --tags'
                             //sh 'npm run build'
                         }
