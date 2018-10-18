@@ -32,6 +32,8 @@ pipeline {
                                     sh("git config credential.username ${env.GIT_USERNAME}")
                                     sh("git config credential.helper '!f() { echo password=\$GIT_PASSWORD; }; f'")
                                     sh 'GIT_ASKPASS=true'
+                                    sh "git checkout ${env.BRANCH_NAME}"
+                                    sh "git pull origin ${env.BRANCH_NAME}"
                                     sh 'git tag | xargs git tag -d'
                                     sh 'npm version prerelease'
                                     sh "git push ${env.GIT_URL} ${env.BRANCH_NAME}"
