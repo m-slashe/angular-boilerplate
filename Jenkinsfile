@@ -3,6 +3,7 @@ pipeline {
     triggers {
         pollSCM('* * * * *')
     }
+    tools {nodejs “node”}
     stages {
         stage('Getting Dependencies'){
             steps {
