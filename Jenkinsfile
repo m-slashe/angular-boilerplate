@@ -27,6 +27,8 @@ pipeline {
                     steps {
                         script {
                             sh 'git tag | xargs git tag -d'
+                            sh 'git fetch origin'
+                            sh "git reset --hard origin/${env.BRANCH_NAME}"
                             sh "git checkout ${env.BRANCH_NAME}"
                             sh 'npm version prerelease'
                             try {
