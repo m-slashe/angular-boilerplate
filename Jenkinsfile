@@ -8,7 +8,7 @@ pipeline {
         stage('Getting Dependencies'){
             steps {
                 script {
-                    sh 'npm install'
+                    sh 'npm i && npm i'
                 }
             }
         }
