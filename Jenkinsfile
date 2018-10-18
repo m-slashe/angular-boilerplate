@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo Getting Dependencies'
-                    //sh 'npm ci'
+                    sh 'npm ci'
                 }
             }
         }
@@ -19,13 +19,14 @@ pipeline {
                     steps {
                         script {
                             sh 'echo Test'
-                            //sh 'npm test'
+                            sh 'npm test'
                         }
                     }
                 }
                 stage('Build') { 
                     steps {
                         script {
+                            sh 'npm run build'
                             try {
                                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gitbucket', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
                                     sh("git config credential.username ${env.GIT_USERNAME}")
@@ -42,8 +43,7 @@ pipeline {
                             } finally {
                                 sh("git config --unset credential.username")
                                 sh("git config --unset credential.helper")
-                            }
-                            //sh 'npm run build'
+                            }                            
                         }
                     }
                 }
