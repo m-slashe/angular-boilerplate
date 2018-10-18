@@ -12,18 +12,22 @@ pipeline {
                 }
             }
         }
-        stage('Test') { 
-            steps {
-                script {
-                    sh 'echo Testing....'
-                    //sh 'npm test'
+        stage('Test and Build'){
+            parallel {
+                stage('Test') { 
+                    steps {
+                        script {
+                            sh 'echo Testing....'
+                            //sh 'npm test'
+                        }
+                    }
                 }
-            }
-        }
-        stage('Build') { 
-            steps {
-                script {
-                    sh 'npm run build'
+                stage('Build') { 
+                    steps {
+                        script {
+                            sh 'npm run build'
+                        }
+                    }
                 }
             }
         }
