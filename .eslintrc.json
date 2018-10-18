@@ -1,0 +1,77 @@
+{
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "angular",
+      "typescript"
+    ],
+    "settings": {
+      "import/resolver": "webpack"
+    },
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "jasmine": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "airbnb-base"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "valid-jsdoc": 2,
+      "no-extra-parens": 2,
+      "no-magic-numbers": [
+        1,
+        {
+          "ignore": [
+            -1,
+            0,
+            1
+          ]
+        }
+      ],
+      "camelcase": 2,
+      "comma-spacing": 2,
+      "no-multiple-empty-lines": [
+        2,
+        {
+          "max": 1
+        }
+      ],
+      "class-methods-use-this": 0,
+      "no-trailing-spaces": 2,
+      "require-jsdoc": 2,
+      "arrow-spacing": 2,
+      "prefer-template": 2,
+      "no-tabs": 0,
+      "func-names": 0,
+      "angular/file-name": 0,
+      "angular/function-type": 0,
+      "lines-between-class-members": 0,
+      "no-undef": 0,
+      "no-unused-vars": 0,
+      "import/prefer-default-export": 0,
+      "no-restricted-globals": 0,
+      "no-underscore-dangle":"error"
+    }
+  }
