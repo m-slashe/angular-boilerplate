@@ -8,6 +8,7 @@ pipeline {
         stage('Getting Dependencies'){
             steps {
                 script {
+                    sh 'echo Getting Dependencies'
                     //sh 'npm ci'
                 }
             }
@@ -17,6 +18,7 @@ pipeline {
                 stage('Test') { 
                     steps {
                         script {
+                            sh 'echo Test'
                             //sh 'npm test'
                         }
                     }
