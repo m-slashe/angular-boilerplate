@@ -15,6 +15,9 @@ class PageController {
 	$scope: ng.IScope;
 
 	constructor($log: ng.ILogService, $http: ng.IHttpService, $scope: ng.IScope) {
+		$scope.$on('seila', (event) => {
+			$log.log(event);
+		});
 		this.$log = $log;
 		this.$http = $http;
 		this.$scope = $scope;
@@ -24,6 +27,9 @@ class PageController {
 	getComboOptions(): kendo.ui.ComboBoxOptions {
 		const self = this;
 		return {
+			open(e: kendo.ui.ComboBoxOpenEvent) {
+				self.$log.log(e);
+			},
 			dataSource: new kendo.data.DataSource({
 				transport: {
 					read: {
@@ -50,6 +56,7 @@ class PageController {
 	getDataPickerOptions(): kendo.ui.DatePickerOptions {
 		const self = this;
 		return {
+
 			value: new Date(),
 			change(e: kendo.ui.DateInputChangeEvent) {
 				self.$log.log(e.sender.value);

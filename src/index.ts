@@ -11,11 +11,11 @@ import testService from './services/service.test';
 const angular = require('angular');
 require('@progress/kendo-ui/js/kendo.all');
 
-const ngModule = require('angular-route');
+const ngRoute = require('angular-route');
 
 const mainModule = 'newproject';
 
-angular.module(mainModule, [ngModule, 'kendo.directives'])
+angular.module(mainModule, [ngRoute, 'kendo.directives'])
 	.config(config)
 	.component(...pageComponent)
 	.component(...anotherComponent)
